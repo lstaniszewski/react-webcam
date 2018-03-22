@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { findDOMNode } from 'react-dom';
-
-let getUserMedia
-try {
-  getUserMedia = require('getusermedia')
-} catch (err) {
-  console.log('getUserMedia not supported', err)
-}
+import getUserMedia from 'getusermedia';
 
 function hasGetUserMedia() {
   return !!getUserMedia;
