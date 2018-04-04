@@ -35,9 +35,9 @@ export default class Webcam extends Component {
       'image/jpeg'
     ]),
     className: PropTypes.string,
-    facingMode: PropTypes.oneOf([
-      PropTypes.shape({}),
+    facingMode: PropTypes.oneOfType([
       PropTypes.string,
+      PropTypes.shape({})
     ])
   };
 
@@ -71,8 +71,7 @@ export default class Webcam extends Component {
     let sourceSelected = ({ audioSource, videoSource }) => {
       let constraints = {
         video: {
-          facingMode: this.props.facingMode,
-          optional: [{sourceId: videoSource}]
+          facingMode: this.props.facingMode
         }
       };
 
