@@ -13,7 +13,8 @@ export default class Webcam extends Component {
     height: 480,
     width: 640,
     screenshotFormat: 'image/webp',
-    onUserMedia: () => {}
+    onUserMedia: () => {},
+    facingMode: 'user',
   };
 
   static propTypes = {
@@ -33,7 +34,11 @@ export default class Webcam extends Component {
       'image/png',
       'image/jpeg'
     ]),
-    className: PropTypes.string
+    className: PropTypes.string,
+    facingMode: PropTypes.oneOf([
+      PropTypes.shape({}),
+      PropTypes.string,
+    ])
   };
 
   static mountedInstances = [];
@@ -66,6 +71,7 @@ export default class Webcam extends Component {
     let sourceSelected = ({ audioSource, videoSource }) => {
       let constraints = {
         video: {
+          facingMode: this.props.facingMode,
           optional: [{sourceId: videoSource}]
         }
       };
