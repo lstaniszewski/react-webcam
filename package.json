@@ -1,6 +1,6 @@
 {
   "name": "react-webcam",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "React webcam component",
   "main": "src/react-webcam.js",
   "scripts": {
@@ -10,11 +10,7 @@
     "type": "git",
     "url": "https://github.com/cezary/react-webcam.git"
   },
-  "keywords": [
-    "react",
-    "react-component",
-    "webcam"
-  ],
+  "keywords": ["react", "react-component", "webcam"],
   "author": "Cezary Wojtkowski <cezary@gmail.com>",
   "license": "MIT",
   "bugs": {
