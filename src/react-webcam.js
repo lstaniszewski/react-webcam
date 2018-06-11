@@ -128,11 +128,13 @@ export default class Webcam extends Component {
       return;
     }
 
+    const src = window.URL.createObjectURL(stream);
+
     this.setState(prev => ({
       hasUserMedia: true,
       streams: [...prev.streams, stream],
+      src,
     }));
-
     this.props.onUserMedia();
   }
 
@@ -155,6 +157,7 @@ export default class Webcam extends Component {
         }
       });
 
+      window.URL.revokeObjectURL(this.state.src);
       Webcam.userMediaRequested = false;
     }
   }
@@ -194,6 +197,7 @@ export default class Webcam extends Component {
         width={this.props.width}
         height={this.props.height}
         muted={this.props.muted}
+        src={this.state.src}
         className={this.props.className}
       />
     );
